@@ -32,7 +32,7 @@ namespace server
             TcpServerChannel channel = new TcpServerChannel(8086);
             Dictionary<string, string> properties = new Dictionary<string, string>();
 
-            ChannelServices.RegisterChannel(channel, false);
+            ChannelServices.RegisterChannel(channel, true);
             ShowChannelProperties(channel);
 
             RemotingConfiguration.ApplicationName = "Game";
