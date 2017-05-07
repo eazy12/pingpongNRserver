@@ -26,16 +26,20 @@ namespace server
                 }
             }
 
+        
+        
+        
         }
         static void Main(string[] args)
         {
-            TcpServerChannel channel = new TcpServerChannel(8086);
-            Dictionary<string, string> properties = new Dictionary<string, string>();
+            //TcpServerChannel channel = new TcpServerChannel(8086);
+            //Dictionary<string, string> properties = new Dictionary<string, string>();
 
-            ChannelServices.RegisterChannel(channel, true);
-            ShowChannelProperties(channel);
+            //ChannelServices.RegisterChannel(channel, true);
+            //ShowChannelProperties(channel);
 
-            RemotingConfiguration.ApplicationName = "Game";
+            RemotingConfiguration.Configure("server.exe.config", false);
+            //RemotingConfiguration.ApplicationName = "Game";
 
             /*LifetimeServices.LeaseTime = TimeSpan.FromMinutes(10);
             LifetimeServices.RenewOnCallTime = TimeSpan.FromMinutes(3);
