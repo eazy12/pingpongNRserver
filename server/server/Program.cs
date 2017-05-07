@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
-using lr3;
+using gamelogic;
 
 namespace server
 {
@@ -35,7 +35,7 @@ namespace server
             ChannelServices.RegisterChannel(channel, false);
             ShowChannelProperties(channel);
 
-            RemotingConfiguration.ApplicationName = "Hello";
+            RemotingConfiguration.ApplicationName = "Game";
 
             /*LifetimeServices.LeaseTime = TimeSpan.FromMinutes(10);
             LifetimeServices.RenewOnCallTime = TimeSpan.FromMinutes(3);
@@ -45,7 +45,7 @@ namespace server
             RemotingConfiguration.RegisterActivatedServiceType(typeof(Hello_2));
             RemotingConfiguration.RegisterActivatedServiceType(typeof(Hello_3));*/
 
-            RemotingConfiguration.RegisterWellKnownServiceType(typeof(Hello_1), "Hi", WellKnownObjectMode.Singleton);
+            RemotingConfiguration.RegisterWellKnownServiceType(typeof(Game), "Game", WellKnownObjectMode.Singleton);
 
             System.Console.WriteLine("Нажмите Enter для выхода");
             System.Console.ReadLine();
