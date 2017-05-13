@@ -49,7 +49,7 @@ namespace server
             RemotingConfiguration.RegisterActivatedServiceType(typeof(Hello_2));
             RemotingConfiguration.RegisterActivatedServiceType(typeof(Hello_3));*/
 
-            RemotingConfiguration.RegisterWellKnownServiceType(typeof(Game), "Game", WellKnownObjectMode.Singleton);
+            //RemotingConfiguration.RegisterWellKnownServiceType(typeof(Game), "Game", WellKnownObjectMode.Singleton);
 
             System.Console.WriteLine("Нажмите Enter для выхода");
             System.Console.ReadLine();
