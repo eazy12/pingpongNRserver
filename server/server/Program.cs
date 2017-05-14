@@ -25,10 +25,29 @@ namespace server
                     Console.WriteLine("URI: " + uri);
                 }
             }
+        }
+        public static void ShowWellKnownServiceTypes()
 
-        
-        
-        
+        {
+
+            WellKnownServiceTypeEntry[] entries =
+
+                RemotingConfiguration.GetRegisteredWellKnownServiceTypes();
+
+            foreach (var entry in entries)
+
+            {
+
+                Console.WriteLine("Assembly: {0}", entry.AssemblyName);
+
+                Console.WriteLine("Mode: {0}", entry.Mode);
+
+                Console.WriteLine("URI: {0}", entry.ObjectUri);
+
+                Console.WriteLine("Type: {0}", entry.TypeName);
+
+            }
+
         }
         static void Main(string[] args)
         {
@@ -39,8 +58,12 @@ namespace server
             //ShowChannelProperties(channel);
 
             RemotingConfiguration.Configure("server.exe.config", false);
+            ShowWellKnownServiceTypes();
+            foreach (var i in System.Runtime.Remoting.Channels.ChannelServices.RegisteredChannels)
+            {
+                ShowChannelProperties((IChannelReceiver)i);
+            }
             //RemotingConfiguration.ApplicationName = "Game";
-
             /*LifetimeServices.LeaseTime = TimeSpan.FromMinutes(10);
             LifetimeServices.RenewOnCallTime = TimeSpan.FromMinutes(3);
             LifetimeServices.SponsorshipTimeout = TimeSpan.FromMinutes(5);
