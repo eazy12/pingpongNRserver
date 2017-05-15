@@ -28,7 +28,8 @@ namespace server
             {
                 ShowChannelProperties((IChannelReceiver)i);
             }
-            System.Console.ReadLine();
+
+            Console.ReadLine();
         }
     }
 }
